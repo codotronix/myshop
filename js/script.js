@@ -3,8 +3,8 @@ $(function(){
 
 	$('#Fetch').click(function(){
 		$.ajax({
-			type: 'POST',
-			url: 'https://affiliate-api.flipkart.net/affiliate/offers/v1/top/json',			
+			type: 'GET',
+			url: 'https://affiliate-api.flipkart.net/affiliate/feeds/codotroni/category/v1:jek-6l2.json?expiresAt=1431135524131&sig=62e9d44dfd220b8e4470d1bb0687137b',			
 			crossDomain: true,
 			headers: {
 				'Fk-Affiliate-Id':'codotroni',
