@@ -1,5 +1,4 @@
 $(function(){
-<<<<<<< HEAD
 /*************** ALL CLICK EVENTS *************************/
 	//mobile main menu view toggle
 	$('#headSharingIconsPanel').on('click', '.showHideMainMenu', function (ev) {
