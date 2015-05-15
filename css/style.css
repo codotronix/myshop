@@ -53,7 +53,6 @@ body {
 	top: auto;
 }
 
-<<<<<<< HEAD
 .jcarousel-wrapper {
 	margin: 20px 40px;
 }
@@ -86,8 +85,6 @@ body {
 	border: 2px solid transparent;
 }
 
-=======
->>>>>>> origin/gh-pages
 /******* Media Queries ***********************/
 @media (min-width:768px) {
 	#logoDiv {

@@ -21,6 +21,15 @@ include "clusterdev.flipkart-api.php";
 	echo '<div id="dtdOffersDiv">';
 	echo $details;
 	echo '</div>';
+
+	try {
+	//write the json to a file
+		$myfile = fopen("dealsOfTheDay.json", "w") or die("Unable to create/open file!");
+		fwrite($myfile, $details);
+		fclose($myfile);
+	} catch(Exception $ex) {
+		echo $ex->getMessage();
+	}
 ?>
 <script>
 	var JSONString = document.getElementById('dtdOffersDiv').innerText;
