@@ -26,4 +26,8 @@ $(function(){
 		$('body').css('background-color', color);
 	});
 
+<<<<<<< HEAD
 })
+=======
+})
+>>>>>>> origin/gh-pages
