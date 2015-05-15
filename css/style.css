@@ -53,10 +53,43 @@ body {
 	top: auto;
 }
 
+.jcarousel-wrapper {
+	margin: 20px 40px;
+}
+
+.jcarousel-wrapper {
+	border: none;
+}
+
+.jcarousel-control-prev, 
+.jcarousel-control-next {
+	background: transparent;
+	text-decoration: none !important;	
+	color: #FFF !important;
+}
+
+.jcarousel-control-prev:hover, 
+.jcarousel-control-next:hover {
+	background: rgba(255, 255, 255, .3);
+}
+
+.jcarousel-control-prev {
+	left: -32px;
+}
+
+.jcarousel-control-next {
+	right: -32px;
+}
+
+.jcarousel li {
+	border: 2px solid transparent;
+}
+
 /******* Media Queries ***********************/
 @media (min-width:768px) {
 	#logoDiv {
 		display: inline-block;
+		float: left;
 	}
 
 	#headNav {
