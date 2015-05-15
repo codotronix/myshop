@@ -1,17 +1,29 @@
 $(function(){
+	var colors = ['Blue', 'Black', 'Red', 'Green'];
+	var colorListHtml = '';
+	for (var i=0; i< colors.length; i++) {
+		colorListHtml += '<li role="presentation"><a role="menuitem" tabindex="-1" href="#">'+ colors[i] +'</a></li>';
+	}
+
+	$('#colorDropDown').html(colorListHtml);
+
 /*************** ALL CLICK EVENTS *************************/
 	//mobile main menu view toggle
 	$('#headSharingIconsPanel').on('click', '.showHideMainMenu', function (ev) {
 		ev.stopPropagation();
 		$('#headNav ul').toggle(500);
-	});
-	
-	$('.btnChooseColor').click(function () {
-		$('#pickColor').show().trigger('click');
-	})
+	});	
 
-	$('#pickColor').on('change', function () {
+	$('#pickColor').on('click', function () {
 		//console.log($(this).val());
-		$('body').css('background', $(this).val());
-	})
+		$('#colorDropDown').toggle();
+	});
+
+	$('#colorDropDown').on('click', 'li', function (ev) {
+		ev.stopPropagation();
+		var color = $(this).find('a').text();
+		$('#colorDropDown').hide();
+		$('body').css('background-color', color);
+	});
+
 })
