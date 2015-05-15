@@ -43,7 +43,7 @@ body {
 	color: #FFF;
 }
 
-#headNav ul li a:hover {
+#headNav ul li:hover {
 	background: rgba(255, 255, 255, .3);
 }
 
