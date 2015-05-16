@@ -69,6 +69,10 @@ body {
 	border: none;
 }
 
+.jcarousel {
+	margin-right: 5px;
+}
+
 .jcarousel-control-prev, 
 .jcarousel-control-next {
 	background: transparent;
