@@ -131,6 +131,14 @@ body {
 	font-size: 18px;
 }
 
+#contentContainer span.itemTitle {
+	background: #5BFF7C;
+}
+
+#contentContainer span.itemDesc {
+	background: #5BFF7C;
+}
+
 #contentContainer .itemPic {
 	max-width: 150px;
 	max-height: 200px;
