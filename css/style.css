@@ -1,6 +1,7 @@
 body {
 	background: #4293FF;
 	/*background: rgb(197, 0, 22);*/
+
 }
 
 .hidden{
@@ -91,14 +92,66 @@ body {
 	border: 2px solid transparent;
 }
 
+#contentContainer {
+	margin-top: 25px;
+	list-style: none;
+	padding: 0;
+}
+
+#contentContainer .itemBox {
+	border: 3px ridge gold;
+	border-radius: 30px;
+	padding: 2px 0 0 0;
+	height: 300px;
+	text-align: center;
+	position: relative;
+	margin-bottom: 20px;
+	overflow: hidden;
+	background: #FFF;
+}
+
+#contentContainer .itemBox:hover {
+	cursor: pointer;
+	border: 3px outset yellow;
+}
+
+#contentContainer .itemBox a {
+	display: block;
+}
+
+#contentContainer .itemInfo {
+	position: absolute;
+	bottom: 0;
+	width: 100%;
+}
+
+#contentContainer span {
+	display: block;
+	font-size: 18px;
+}
+
+#contentContainer .itemPic {
+	max-width: 150px;
+	max-height: 200px;
+}
+
+.old-price.price-cut {
+	text-decoration: line-through;
+}
+
+footer {
+	text-align: center;
+	color: #FFF;
+	margin:150px 0 10px 0;
+	border-top: 1px inset #FFF;
+	padding-top: 5px;
+}
+
 /******* Media Queries ***********************/
 @media (min-width:768px) {
 	#logoDiv {
 		display: inline-block;
 		float: left;
-	}
-
-	#headNav {
 	}
 
 	#headNav ul {
