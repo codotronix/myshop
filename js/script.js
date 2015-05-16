@@ -69,6 +69,8 @@ $(function(){
 		//load Flipkart Daily Deals
 		var fileURL = 'data/flipkart/dealsOfTheDay.json';
 		var data = retriveData(fileURL);
+		//parse the Fk DailyDeals data and add to page
+		parseAddFkDt(data);
 	}
 
 	/* the function to read files via ajax call */
