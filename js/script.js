@@ -60,11 +60,11 @@ $(function(){
 		$('body').css('background-color', color);
 	});
 
-	$('#headNav ul li.active, #headNav ul li.active a').click(function (ev) {
-		ev.preventDefault();
-	});
-
-	$('#headNav').on('click', 'li[data-page-id]', function () {
+	$('#headNav').on('click', 'li[data-page-id]', function (ev) {
+		if($(this).hasClass('active')) {
+			ev.preventDefault();
+			return;
+		}
 		$('li[data-page-id]').removeClass('active');
 		$(this).addClass('active');
 		var pageID = $(this).attr('data-page-id');
