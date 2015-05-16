@@ -128,15 +128,16 @@ body {
 
 #contentContainer span {
 	display: block;
-	font-size: 18px;
 }
 
 #contentContainer span.itemTitle {
 	background: #A7FCFF;
+	font-size: 20px;
 }
 
 #contentContainer span.itemDesc {
 	background: #5BFF7C;
+	font-size: 17px;
 }
 
 #contentContainer .itemPic {
