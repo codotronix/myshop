@@ -43,8 +43,14 @@ body {
 	color: #FFF;
 }
 
-#headNav ul li:hover {
+#headNav ul li:hover,
+#headNav ul li.active {
 	background: rgba(255, 255, 255, .3);
+}
+
+#headNav ul li.active:hover,
+#headNav ul li.active a:hover {
+	cursor: default;
 }
 
 #colorDropDown {

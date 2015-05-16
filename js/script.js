@@ -24,12 +24,20 @@ $(function(){
 			$('.jcarousel-control-next').trigger('click');
 		}
 
-		setTimeout(autoRightScroll, 1500);
+		setTimeout(autoRightScroll, 2000);
 	}
 
 	autoRightScroll();
 ///////////////////////////////////////////////////////////////////
 
+/************* Content Loading Function Calls Start **************/
+	//get page id to know which page we are in
+	var pageID = $('#headNav ul li.active').attr('data-page-id');
+
+	if (pageID == 'dailyDeals') {
+		loadDailyDeals();
+	}
+//////////////////////////////////////////////////////////////////
 
 /************************* ALL EVENTS ****************************/
 	//mobile main menu view toggle
@@ -49,5 +57,33 @@ $(function(){
 		$('#colorDropDown').hide();
 		$('body').css('background-color', color);
 	});
+
+	$('#headNav ul li.active, #headNav ul li.active a').click(function (ev) {
+		ev.preventDefault();
+	})
+/////////////////////////////////////////////////////////////////////
+
+/**************** ALL FUNCTIONS DEFINED BELOW **********************/
+	/*this is the main calling function to all load sub functions*/
+	function loadDailyDeals() {
+		//load Flipkart Daily Deals
+		var fileURL = 'data/flipkart/dealsOfTheDay.json';
+		var data = retriveData(fileURL);
+	}
+
+	/* the function to read files via ajax call */
+	function retriveData(fileURL) {
+		$.ajax({
+			url: fileURL,
+			method: 'GET',
+			dataType: 'json',
+			success: function(data) {
+				console.log(data);
+			},
+			fail: function(msg) {
+				console.log(msg);
+			}
+		});
+	}
 /////////////////////////////////////////////////////////////////////
 })
