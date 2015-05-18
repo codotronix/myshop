@@ -1,22 +1,12 @@
-[
-	{
-		"id" : "deals",
-		"pages" : [
-					"data/deals/test1.json",
-					"data/deals/test2.json",
-					"data/deals/test3.json",
-					"data/deals/test4.json",
-					"data/deals/test5.json"
-				]
-	},
-	{
-		"id" : "fashion",
-		"pages" : [
-					"data/fashion/test1.json",
-					"data/fashion/test2.json",
-					"data/fashion/test3.json",
-					"data/fashion/test4.json",
-					"data/fashion/test5.json"
-				]
-	}
-]
+{
+	"deals": 
+			[
+			"data/deals/may182015.json",
+			"data/deals/may162015.json"
+			],	
+	
+	"fashion": 
+			[
+			"data/fashion/may162015.json"
+			]
+}
