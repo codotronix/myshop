@@ -67,7 +67,29 @@ $.getJSON('data/menu.json')
 			$('li[data-page-num="'+dataPageNum+'"]').addClass('active');
 			gotoPage(dataPageNum);
 		}
-	})
+	});
+
+	//left double arrow is clicked, go to page 1
+	$('.secPagination').on('click', '.left-arrow.double-arrow', function () {
+		gotoPage(1);
+	});
+
+	//left single arrow is clicked, go to thisPage-1
+	$('.secPagination').on('click', '.left-arrow.single-arrow', function () {
+		var currentPageNum = Number($('.secPagination li.active').attr("data-page-num"));
+		gotoPage(currentPageNum-1);
+	});
+
+	//right double arrow is clicked, go to page 1
+	$('.secPagination').on('click', '.right-arrow.double-arrow', function () {
+		gotoPage(lastPageNum);
+	});
+
+	//right single arrow is clicked, go to thisPage+1
+	$('.secPagination').on('click', '.right-arrow.single-arrow', function () {
+		var currentPageNum = Number($('.secPagination li.active').attr("data-page-num"));
+		gotoPage(currentPageNum+1);
+	});
 
 /////////////////////////////////////////////////////////////////////
 
