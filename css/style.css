@@ -93,6 +93,33 @@ body {
 	border: 2px solid transparent;
 }
 
+.secPagination {
+	text-align: center;
+}
+
+.secPagination ul {
+	padding: 0 10px;
+}
+
+.secPagination ul li {
+	list-style: none;
+	display: inline-block;
+	font-size: 20px;
+	color: #FFF;
+	border: 1px solid #FFF;
+	padding: 5px 15px;
+	margin-left: 5px;
+}
+
+.secPagination ul li:hover {
+	background: rgba(255, 255, 255, .3);
+	cursor: pointer;
+}
+
+.secPagination ul li.active {
+	background: rgba(255, 255, 255, .3);
+}
+
 #contentContainer {
 	margin-top: 25px;
 	list-style: none;
