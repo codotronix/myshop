@@ -62,7 +62,7 @@ $.getJSON('data/menu.json')
 	//pagination button click event
 	$('.secPagination').on('click', 'li[data-page-num]', function () {
 		if(!$(this).hasClass('active')) {			
-			gotoPage(dataPageNum);
+			gotoPage($(this).attr('data-page-num'));
 		}
 	});
 
