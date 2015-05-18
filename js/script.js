@@ -10,36 +10,23 @@ $(function(){
 	$('#colorDropDown').html(colorListHtml);
 //////////////////// The color picker end /////////////////////////
 
-/******************* top Carousel auto rotate ********************/
-	var leftArrowClicked = false;
-	$('.jcarousel-control-prev').click(function () {
-		leftArrowClicked = true;
-	});
-
-	function autoRightScroll () {
-		if (leftArrowClicked) {
-			leftArrowClicked = false;
-		}
-		else {
-			$('.jcarousel-control-next').trigger('click');
-		}
-
-		setTimeout(autoRightScroll, 2000);
-	}
-
-	autoRightScroll();
-///////////////////////////////////////////////////////////////////
-
-/************* Content Loading Function Calls Start **************/
-	//get page id to know which page we are in
-	var pageID = $('#headNav ul li.active').attr('data-page-id');
-	//clear the contentContainer for new loading
-	$('#contentContainer').html('');
-
-	if (pageID == 'dailyDeals') {
-		loadDailyDeals();
-	}
-//////////////////////////////////////////////////////////////////
+/**** When site loads, read and store the manu object which contains info on site
+navigation and pagination content address ****/
+var menuObj;
+$.getJSON('data/menu.json')
+	.done(function(data) {
+			menuObj = data;
+			//console.log(menuObj);
+			/* since this function was called at page load/site load, 
+			we must now make the 1st page i.e the Deals page ready */
+			$('li[data-page-id="deals"]').addClass('active');
+			initPage("deals");
+		})
+	.fail(function(e,f,g) { 
+			console.log('request failed' + e + " and " + f + " and " + g);
+			alert('Site cannot be loaded due to menu object loading error... Please report this...');
+		});
+////////////////////////////////////////////////////////////////////////////////
 
 /************************* ALL EVENTS ****************************/
 	//mobile main menu view toggle
@@ -68,52 +55,102 @@ $(function(){
 		$('li[data-page-id]').removeClass('active');
 		$(this).addClass('active');
 		var pageID = $(this).attr('data-page-id');
-		$('#contentContainer').html('');
-
-		//load page checking the pageID
-		if (pageID == 'dailyDeals') {
-			loadDailyDeals();
-		}
-		else if (pageID == 'fashion') {
-			loadFashion();
-		}
+		initPage(pageID);
 	});
+
+	//pagination button click event
+	$('.secPagination').on('click', 'li[data-page-num]', function () {
+		if(!$(this).hasClass('active')) {
+			var dataPageNum = $(this).attr('data-page-num');
+			$('li[data-page-num]').removeClass('active');
+			$('li[data-page-num="'+dataPageNum+'"]').addClass('active');
+			gotoPage(dataPageNum);
+		}
+	})
 
 /////////////////////////////////////////////////////////////////////
 
-/**************** ALL FUNCTIONS DEFINED BELOW **********************/
-	/*this is the main calling function for daily deals tab*/
-	function loadDailyDeals() {
-		//load Flipkart Daily Deals
-		var fileURL = 'data/flipkart/dealsOfTheDay.json';		
-		retriveData(fileURL, parseNAdd);
+/******************* top Carousel auto rotate ********************/
+	var leftArrowClicked = false;
+	$('.jcarousel-control-prev').click(function () {
+		leftArrowClicked = true;
+	});
+
+	function autoRightScroll () {
+		if (leftArrowClicked) {
+			leftArrowClicked = false;
+		}
+		else {
+			$('.jcarousel-control-next').trigger('click');
+		}
+
+		setTimeout(autoRightScroll, 2000);
 	}
 
-	/*this is the main calling function for fashion tab*/
-	function loadFashion() {
-		var fileURL = 'data/zovi/test.json';
-		retriveData(fileURL, parseNAdd);
+	autoRightScroll();
+///////////////////////////////////////////////////////////////////
+
+/**************** ALL FUNCTIONS DEFINED BELOW **********************/	
+
+	/* initPage function will take the pageId and make the page for us including
+ 	pagination and then loading the content of the 1st page
+	*/
+	function initPage(pageId) {
+		//get the pages array for this page
+		var pages = menuObj[pageId];
+		var noOfPages = pages.length;
+		$('.secPagination').html('');
+		//console.log(pages);
+		//if there is only 1 page, no need to show pagination
+		if(noOfPages > 1) {
+			var paginationHtml = '<ul>'
+								+	'<li>&laquo;</li>'
+								+	'<li>&lsaquo;</li>';
+
+			for(var i=1; i<= noOfPages; i++) {
+				paginationHtml += '<li data-page-num="' + i + '">' + i + '</li>'; 
+			}
+
+			paginationHtml += 	'<li>&rsaquo;</li>'
+							+	'<li>&raquo;</li>'
+							+ '</ul>'
+
+			$('.secPagination').html(paginationHtml);
+
+			//now load the 1st page of this menu type into the content area
+			$('li[data-page-num="1"]').trigger('click');
+		} 
+		else if (noOfPages == 1) {
+			gotoPage(1)
+		} 
+		else {
+			$('#contentContainer').html("CONTENT COMING SOON...");
+		}
+	}
+
+	/* gotoPage(pageNum) function will load the content of pageNum page..
+ 	remember the pageAddressArray index will be pageNum-1 since array 
+ 	index starts from 0 */
+	function gotoPage(pageNum) {
+		var pageAddress = menuObj[$('li.active').attr('data-page-id')][Number(pageNum)-1];
+		//console.log(pageAddress);
+		//fetch content from that address
+		retriveData(pageAddress);
 	}
 
 	/* the function to read files via ajax call */
-	function retriveData(fileURL, callBackFn) {
-		$.ajax({
-			url: fileURL,
-			method: 'GET',
-			dataType: 'json',
-			success: function(data) {
-				//console.log(data);
-				if (callBackFn && typeof(callBackFn) === 'function') {
-					callBackFn(data);
-				}
-			},
-			fail: function(msg) {
-				//console.log(msg);
-			}
+	function retriveData(fileURL) {
+		$.getJSON(fileURL)
+	.done(function(data) {
+			//console.log(data);
+			parseNAdd(data);
+		})
+	.fail(function(e,f,g) { 
+			console.log('retriveData failed' + e + " and " + f + " and " + g);
 		});
 	}
 
-	/* this function will parse Fk Daily deals data and populate page */
+	/* this function will json data and populate page */
 	function parseNAdd(data){
 		console.log(data);
 		//var itemsObjArray = data.dotdList;
@@ -138,9 +175,10 @@ $(function(){
 		}
 
 		//append the html content inside #contentContainer
-		$('#contentContainer').append(itemsHTML);
+		$('#contentContainer').html(itemsHTML);
 
 		$('.icon-rupee').addClass('fa fa-inr');
 	}
-/////////////////////////////////////////////////////////////////////
-})
+//////////////////////////////////////////////////////////////////////////
+});
+
