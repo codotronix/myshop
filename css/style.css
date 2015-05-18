@@ -1,7 +1,5 @@
 body {
 	background: #4293FF;
-	/*background: rgb(197, 0, 22);*/
-
 }
 
 .hidden{
@@ -37,12 +35,10 @@ body {
 	z-index: 1;
 }
 
-#headNav ul li a {
-	display: block;
-	text-decoration: none !important;
+#headNav ul li {
 	text-align: center;
-	font-size: 20px;
 	color: #FFF;
+	cursor: pointer;
 }
 
 #headNav ul li:hover,
@@ -177,19 +173,14 @@ footer {
 		display: table-cell;
 		border: 1px solid #FFF;
 		border-radius: 21px;
+		font-size: 25px;
 	}
 	
 	#headNav ul li:hover {
 	}
 	
-	#headNav ul li a {
-		font-size: 25px;
-		color: #fff;		
-		display: block;
-	}
-	
 	#headSharingIconsPanel {
-		padding: 15px 20px;	
+	    padding: 15px 20px;	
 	    float: right;
 	    display: inline-block;
 	    font-size: 50px
@@ -216,7 +207,7 @@ footer {
 		display: none;
 	}
 
-	#headNav ul li a {
+	#headNav ul li {
 		padding: 10px;
 		border-bottom: 1px solid #FFF;
 	}
