@@ -13,6 +13,7 @@ $(function(){
 /**** When site loads, read and store the manu object which contains info on site
 navigation and pagination content address ****/
 var menuObj;
+var lastPageNum;
 $.getJSON('data/menu.json')
 	.done(function(data) {
 			menuObj = data;
@@ -99,20 +100,21 @@ $.getJSON('data/menu.json')
 		//get the pages array for this page
 		var pages = menuObj[pageId];
 		var noOfPages = pages.length;
+		lastPageNum = noOfPages;
 		$('.secPagination').html('');
 		//console.log(pages);
 		//if there is only 1 page, no need to show pagination
 		if(noOfPages > 1) {
 			var paginationHtml = '<ul>'
-								+	'<li>&laquo;</li>'
-								+	'<li>&lsaquo;</li>';
+								+	'<li class="left-arrow double-arrow">&laquo;</li>'
+								+	'<li class="left-arrow single-arrow">&lsaquo;</li>';
 
 			for(var i=1; i<= noOfPages; i++) {
 				paginationHtml += '<li data-page-num="' + i + '">' + i + '</li>'; 
 			}
 
-			paginationHtml += 	'<li>&rsaquo;</li>'
-							+	'<li>&raquo;</li>'
+			paginationHtml += 	'<li class="right-arrow single-arrow">&rsaquo;</li>'
+							+	'<li class="right-arrow double-arrow">&raquo;</li>'
 							+ '</ul>'
 
 			$('.secPagination').html(paginationHtml);
@@ -136,6 +138,20 @@ $.getJSON('data/menu.json')
 		//console.log(pageAddress);
 		//fetch content from that address
 		retriveData(pageAddress);
+
+		//showhide pagination button
+		if (pageNum == 1) {
+			$('.left-arrow').hide();
+			$('.right-arrow').show();
+		}
+		else if (pageNum == lastPageNum) {
+			$('.right-arrow').hide();
+			$('.left-arrow').show();
+		}
+		else {
+			$('.left-arrow').show();
+			$('.right-arrow').show();
+		}
 	}
 
 	/* the function to read files via ajax call */
