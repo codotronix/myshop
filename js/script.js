@@ -61,10 +61,7 @@ $.getJSON('data/menu.json')
 
 	//pagination button click event
 	$('.secPagination').on('click', 'li[data-page-num]', function () {
-		if(!$(this).hasClass('active')) {
-			var dataPageNum = $(this).attr('data-page-num');
-			$('li[data-page-num]').removeClass('active');
-			$('li[data-page-num="'+dataPageNum+'"]').addClass('active');
+		if(!$(this).hasClass('active')) {			
 			gotoPage(dataPageNum);
 		}
 	});
@@ -164,6 +161,10 @@ $.getJSON('data/menu.json')
 		//console.log(pageAddress);
 		//fetch content from that address
 		retriveData(pageAddress);
+
+		//mark as active
+		$('li[data-page-num]').removeClass('active');
+		$('li[data-page-num="'+pageNum+'"]').addClass('active');
 
 		//showhide pagination button
 		if (pageNum == 1) {
