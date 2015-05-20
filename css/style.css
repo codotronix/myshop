@@ -131,20 +131,20 @@ body {
 }
 
 #contentContainer .itemBox {
-	border: 3px ridge gold;
+	border: 5px ridge rgb(238, 174, 255);
 	border-radius: 30px;
 	padding: 2px 0 0 0;
 	height: 300px;
 	text-align: center;
 	position: relative;
-	margin-bottom: 20px;
+	margin-bottom: 1px;
 	overflow: hidden;
 	background: #FFF;
 }
 
 #contentContainer .itemBox:hover {
 	cursor: pointer;
-	border: 3px outset yellow;
+	border: 5px outset rgb(174, 92, 98);
 }
 
 #contentContainer .itemBox a {
