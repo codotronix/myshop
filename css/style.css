@@ -201,7 +201,6 @@ footer {
 	
 	#headNav ul li {
 		display: table-cell;
-		border: 1px solid #FFF;
 		border-radius: 21px;
 		font-size: 25px;
 	}
