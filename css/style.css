@@ -1,5 +1,4 @@
 body {
-	/*background: #4293FF;*/
 }
 
 .hidden{
@@ -121,7 +120,7 @@ body {
 
 .secPagination ul li.active {
 	background: #261DB3;
-	color: FFF;
+	color: #FFF;
 }
 
 #contentContainer {
@@ -205,9 +204,6 @@ footer {
 		border: 1px solid #FFF;
 		border-radius: 21px;
 		font-size: 25px;
-	}
-	
-	#headNav ul li:hover {
 	}
 	
 	#headSharingIconsPanel {
