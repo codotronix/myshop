@@ -95,6 +95,7 @@ body {
 }
 
 .mainContainer {
+	padding-bottom: 25px;
 	background: #1AE598;
 	border-radius: 30px;
 	margin: 10px auto;
