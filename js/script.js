@@ -202,7 +202,7 @@ $.getJSON('data/menu.json')
 		//console.log(jsonObj.dotdList);
 
 		for(var i=0; i< itemsObjArray.length; i++) {
-			itemsHTML += '<li class="itemBox col-sm-3 col-xs-11">'
+			itemsHTML += '<li class="itemBox col-sm-3 col-xs-12">'
 						+	'<a href="' + itemsObjArray[i].url + '">'
 						+		'<img class="itemPic" src="' + itemsObjArray[i].imageUrls[0].url + '"/>'
 						+		'<div class="itemInfo">'	
