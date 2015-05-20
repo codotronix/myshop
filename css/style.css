@@ -94,12 +94,13 @@ body {
 	border: 2px solid transparent;
 }
 
+.mainContainer {
+	background: #1AE598;
+	border-radius: 30px;
+	margin: 10px auto;
+}
 .secPagination {
 	text-align: center;
-}
-
-.secPagination ul {
-	padding: 0 10px;
 }
 
 .secPagination ul li {
@@ -182,7 +183,7 @@ body {
 footer {
 	text-align: center;
 	color: #FFF;
-	margin:150px 0 10px 0;
+	margin: 50px 0 10px 0;
 	border-top: 1px inset #FFF;
 	padding-top: 5px;
 }
