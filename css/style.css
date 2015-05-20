@@ -228,6 +228,10 @@ footer {
 	#logoDiv {
 		display: block;
 	}
+	
+	header .description {
+		display: none;
+	}
 
 	#headNav ul {
 		position: absolute;
