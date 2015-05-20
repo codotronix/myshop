@@ -6,8 +6,8 @@ body {
 	display: none;
 }
 
-#logoDiv a {
-	padding: 0 10px;
+#logoDiv {
+	padding: 5px 10px;
 }
 
 #headSharingIconsPanel {	
@@ -22,7 +22,7 @@ body {
 #headSharingIconsPanel .fa {
 	display: inline-block;
 	font-size: 40px;
-	color: #FFF;
+	color: #cf0000;
 }
 
 #headNav {
@@ -37,13 +37,15 @@ body {
 
 #headNav ul li {
 	text-align: center;
-	color: #FFF;
+	color: #CF0000;
+	border: 1px solid #CF0000;
 	cursor: pointer;
 }
 
 #headNav ul li:hover,
 #headNav ul li.active {
-	background: rgba(255, 255, 255, .3);
+	background: #CF0000;
+	color: #FFF;
 }
 
 #headNav ul li.active:hover,
@@ -105,19 +107,21 @@ body {
 	list-style: none;
 	display: inline-block;
 	font-size: 20px;
-	color: #FFF;
-	border: 1px solid #FFF;
+	color: #261DB3;
+	border: 1px solid #261DB3;
 	padding: 5px 15px;
 	margin-left: 5px;
 }
 
 .secPagination ul li:hover {
-	background: rgba(255, 255, 255, .3);
+	background: #261DB3;
+	color: #FFF;
 	cursor: pointer;
 }
 
 .secPagination ul li.active {
-	background: rgba(255, 255, 255, .3);
+	background: #261DB3;
+	color: FFF;
 }
 
 #contentContainer {
@@ -215,6 +219,7 @@ footer {
 	
 	#headSharingIconsPanel span:hover {
 		cursor: pointer;
+		color: #261DB3;
 	}
 
 	#headSharingIconsPanel .showHideMainMenu {
