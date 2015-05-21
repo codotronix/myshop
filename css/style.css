@@ -72,14 +72,14 @@ body {
 
 .jcarousel-control-prev, 
 .jcarousel-control-next {
-	background: transparent;
+	background: #ADA8FF;
 	text-decoration: none !important;	
 	color: #FFF !important;
 }
 
 .jcarousel-control-prev:hover, 
 .jcarousel-control-next:hover {
-	background: rgba(255, 255, 255, .3);
+	background: #E8696E;
 }
 
 .jcarousel-control-prev {
