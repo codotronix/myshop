@@ -10,5 +10,10 @@
 			[
 			"data/fashion/may162015-2.json",
 			"data/fashion/may162015.json"
+			],
+	
+	"electronics":
+			[
+			"data/testElectronics.json"
 			]
 }
