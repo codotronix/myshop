@@ -69,14 +69,14 @@ $.getJSON('data/menu.json')
 	//left double arrow is clicked, go to page 1
 	$('.secPagination').on('click', '.left-arrow.double-arrow', function () {
 		gotoPage(1);
-		console.log('going to 1');
+		//console.log('going to 1');
 	});
 
 	//left single arrow is clicked, go to thisPage-1
 	$('.secPagination').on('click', '.left-arrow.single-arrow', function () {
 		var currentPageNum = Number($('.secPagination li.active').attr("data-page-num"));
 		gotoPage(currentPageNum-1);
-		console.log('going to ' + (currentPageNum-1))
+		//console.log('going to ' + (currentPageNum-1))
 	});
 
 	//right double arrow is clicked, go to page 1
@@ -89,7 +89,7 @@ $.getJSON('data/menu.json')
 	$('.secPagination').on('click', '.right-arrow.single-arrow', function () {
 		var currentPageNum = Number($('.secPagination li.active').attr("data-page-num"));
 		gotoPage(currentPageNum+1);
-		console.log('going to ' + (currentPageNum+1))
+		//console.log('going to ' + (currentPageNum+1))
 	});
 
 /////////////////////////////////////////////////////////////////////
