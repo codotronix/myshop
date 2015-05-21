@@ -94,6 +94,10 @@ body {
 	border: 2px solid transparent;
 }
 
+.jcarousel li:hover {
+	border-color: yellow;
+}
+
 .mainContainer {
 	padding-bottom: 25px;
 	background: #1AE598;
