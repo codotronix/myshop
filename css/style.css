@@ -150,6 +150,7 @@ body {
 
 #contentContainer .itemBox a {
 	display: block;
+	height: 100%;
 }
 
 #contentContainer .itemInfo {
