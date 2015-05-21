@@ -154,8 +154,10 @@ body {
 }
 
 #contentContainer .itemInfo {
+	background: #5BFF7C;
+	height: 110px;
 	position: absolute;
-	bottom: 0;
+	top: 180px;
 	width: 100%;
 }
 
