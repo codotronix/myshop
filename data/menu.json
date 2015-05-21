@@ -14,6 +14,7 @@
 	
 	"electronics":
 			[
+			"data/testElectronics2.json",
 			"data/testElectronics.json"
 			]
 }
