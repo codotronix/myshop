@@ -91,7 +91,7 @@ body {
 }
 
 .jcarousel li {
-	border: 2px solid blue;
+	border: 2px solid #FFF;
 }
 
 .jcarousel li:hover {
