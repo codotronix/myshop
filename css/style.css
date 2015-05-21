@@ -156,6 +156,7 @@ body {
 #contentContainer .itemInfo {
 	background: #5BFF7C;
 	height: 110px;
+	overflow: auto;
 	position: absolute;
 	top: 180px;
 	width: 100%;
