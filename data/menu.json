@@ -15,7 +15,7 @@
 	
 	"electronics":
 			[
-			"data/testElectronics2.json",
-			"data/testElectronics.json"
+			"data/electronics/testElectronics2.json",
+			"data/electronics/testElectronics.json"
 			]
 }
